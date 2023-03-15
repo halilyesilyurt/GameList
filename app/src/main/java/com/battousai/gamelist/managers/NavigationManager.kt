@@ -23,7 +23,7 @@ class NavigationManager {
     private val listTab = listOf(
         R.id.home_fragment,
         R.id.favorite_fragment,
-        R.id.help_fragment
+        R.id.category_fragment
     )
 
     private fun setUpGraph(navController: NavController) {
