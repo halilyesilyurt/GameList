@@ -12,7 +12,7 @@ class NetworkHelper {
 
     companion object {
 
-        val service = getRetrofitInstance().create(ApiService::class.java)
+        val service: ApiService = getRetrofitInstance().create(ApiService::class.java)
 
 
         private fun getRetrofitInstance(): Retrofit {
