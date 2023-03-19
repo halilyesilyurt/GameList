@@ -11,7 +11,7 @@ import com.battousai.gamelist.models.CategoryListResponseModel
 import com.battousai.gamelist.screens.category.list.CategoryListAdapter
 
 
-class CategoryFragment : BaseFragment(R.layout.fragment_category) {
+class CategoryFragment: BaseFragment(R.layout.fragment_category) {
     private val viewBinding by viewBinding(FragmentCategoryBinding::bind)
     private val viewModel: CategoryViewModel by viewModels()
     private lateinit var categoryListAdapter: CategoryListAdapter
@@ -34,6 +34,8 @@ class CategoryFragment : BaseFragment(R.layout.fragment_category) {
     private val handleShowProgress = Observer<Boolean> {
         viewBinding.progress.isVisible = it
     }
+
+
 
 
 }

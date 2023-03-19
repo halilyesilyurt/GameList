@@ -2,9 +2,11 @@ package com.battousai.gamelist.screens.category.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.battousai.gamelist.R
 import com.battousai.gamelist.models.CategoryModel
+import com.battousai.gamelist.screens.category.CategoryFragmentDirections
 
 class CategoryListAdapter(private val categoryList:List<CategoryModel>):
     RecyclerView.Adapter<CategoryListViewHolder>(){
@@ -20,7 +22,14 @@ class CategoryListAdapter(private val categoryList:List<CategoryModel>):
     }
 
     override fun onBindViewHolder(holder: CategoryListViewHolder, position: Int) {
+
+        holder.itemView.setOnClickListener {
+            val action=CategoryFragmentDirections.actionCategoryFragmentToCategoryDetailFragment(categoryList[position].id)
+            Navigation.findNavController(it).navigate(action)
+        }
         holder.bind(categoryList[position])
+
+
 
     }
 }

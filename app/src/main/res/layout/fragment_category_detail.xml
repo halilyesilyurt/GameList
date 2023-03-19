@@ -1,0 +1,66 @@
+
+<ScrollView android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingConstraints"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+           />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="300dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCategoryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/action_game"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold|italic" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCategoryCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/_300_game"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold|italic"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCategoryDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="@string/information"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            />
+
+
+    </LinearLayout>
+</ScrollView>
