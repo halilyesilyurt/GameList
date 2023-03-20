@@ -8,6 +8,7 @@ import com.battousai.gamelist.base.BaseFragment
 import com.battousai.gamelist.base.viewBinding
 import com.battousai.gamelist.databinding.FragmentHomeBinding
 import com.battousai.gamelist.models.GameListResponseModel
+import com.battousai.gamelist.models.GameModel
 import com.battousai.gamelist.screens.home.list.GameListAdapter
 
 class HomeFragment : BaseFragment(R.layout.fragment_home) {
@@ -31,6 +32,11 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         gameListAdapter = GameListAdapter(it.results)
         viewBinding.rvGames.adapter = gameListAdapter
     }
+
+    private fun GameListAdapter(gameList: List<GameModel>): GameListAdapter {
+            TODO()
+    }
+
 
     private val handleShowProgress = Observer<Boolean> {
         viewBinding.progress.isVisible = it

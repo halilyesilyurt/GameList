@@ -23,7 +23,7 @@ class CommonLiveEvent<T> : MutableLiveData<T>() {
     }
 
     @MainThread
-    override fun setValue(@Nullable t: T?) {
+    override fun setValue(t: T?) {
         pending.set(true)
         super.setValue(t)
     }

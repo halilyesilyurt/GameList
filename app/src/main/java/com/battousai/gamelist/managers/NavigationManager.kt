@@ -134,10 +134,12 @@ class NavigationManager {
             NavigationUI.onNavDestinationSelected(menuItem, navController)
         }
 
+
     private fun handleDestinationChangeListener(activity: FragmentActivity) =
         NavController.OnDestinationChangedListener { _, destination, _ ->
             getTabBar(activity).isVisible = listTab.contains(destination.id)
         }
+
 
     fun currentFragment(activity: FragmentActivity): Int? {
         return getNavController(activity).currentDestination?.id
@@ -150,6 +152,11 @@ class NavigationManager {
     private fun getTabBar(activity: FragmentActivity): BottomNavigationView {
         return activity.findViewById(R.id.tabBar)
     }
+    private fun getFavButton(activity: FragmentActivity):BottomNavigationView{
+        return activity.findViewById(R.id.btnFav)
+    }
+
+
 
     companion object {
 

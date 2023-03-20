@@ -22,6 +22,7 @@
         tools:text="Call Of Duty" />
 
     <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/btnFav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
