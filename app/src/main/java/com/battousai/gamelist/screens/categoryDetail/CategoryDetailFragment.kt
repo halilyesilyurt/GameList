@@ -45,7 +45,7 @@ class CategoryDetailFragment : BaseFragment(R.layout.fragment_category_detail){
         viewBinding.apply {
             tvCategoryCount.text="${model.games_count} Games"
             tvCategoryName.text=model.name
-            tvCategoryDetail.text=model.description
+            tvCategoryDetail.text=model.description.substring(3,model.description.length-4)
             Glide
                 .with(this@CategoryDetailFragment)
                 .load(model.image_background)
