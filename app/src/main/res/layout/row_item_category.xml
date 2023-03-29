@@ -31,7 +31,6 @@
         android:layout_gravity="top|end"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-
         android:gravity="center"
         android:textColor="@color/white"
         tools:text="3 Game" />

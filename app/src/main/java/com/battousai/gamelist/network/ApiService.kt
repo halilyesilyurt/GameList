@@ -1,6 +1,6 @@
 package com.battousai.gamelist.network
 
-import com.battousai.gamelist.models.CategoryListGameResponseModel
+import com.battousai.gamelist.models.CategoryDetailResponseModel
 import com.battousai.gamelist.models.CategoryListResponseModel
 import com.battousai.gamelist.models.GameListResponseModel
 import retrofit2.http.GET
@@ -15,5 +15,5 @@ interface ApiService {
     suspend fun getCategoryList(): CategoryListResponseModel
 
     @GET("genres/{id}")
-    suspend fun getCategoryListGames(@Path("id") categoryid:Int): CategoryListGameResponseModel
+    suspend fun getCategoryDetail(@Path("id") categoryid:Int): CategoryDetailResponseModel
 }

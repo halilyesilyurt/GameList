@@ -1,6 +1,6 @@
 package com.battousai.gamelist.repository
 
-import com.battousai.gamelist.models.CategoryListGameResponseModel
+import com.battousai.gamelist.models.CategoryDetailResponseModel
 import com.battousai.gamelist.models.CategoryListResponseModel
 import com.battousai.gamelist.models.GameListResponseModel
 import com.battousai.gamelist.network.NetworkHelper
@@ -10,12 +10,11 @@ class RemoteRepository {
     suspend fun getGameList(): GameListResponseModel {
         return NetworkHelper.service.getGameList(30)
     }
-
     suspend fun getCategoryList(): CategoryListResponseModel {
         return NetworkHelper.service.getCategoryList()
     }
-    suspend fun getCategoryListGame(categoryid:Int): CategoryListGameResponseModel {
-        return NetworkHelper.service.getCategoryListGames(categoryid)
+    suspend fun getCategoryDetail(categoryid:Int): CategoryDetailResponseModel {
+        return NetworkHelper.service.getCategoryDetail(categoryid)
     }
 
 

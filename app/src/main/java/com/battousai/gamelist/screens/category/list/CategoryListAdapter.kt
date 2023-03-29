@@ -22,14 +22,10 @@ class CategoryListAdapter(private val categoryList:List<CategoryModel>):
     }
 
     override fun onBindViewHolder(holder: CategoryListViewHolder, position: Int) {
-
         holder.itemView.setOnClickListener {
             val action=CategoryFragmentDirections.actionCategoryFragmentToCategoryDetailFragment(categoryList[position].id)
             Navigation.findNavController(it).navigate(action)
         }
         holder.bind(categoryList[position])
-
-
-
     }
 }

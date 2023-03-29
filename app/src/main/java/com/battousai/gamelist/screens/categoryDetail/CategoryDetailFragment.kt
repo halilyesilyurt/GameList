@@ -8,25 +8,19 @@ import com.battousai.gamelist.R
 import com.battousai.gamelist.base.BaseFragment
 import com.battousai.gamelist.base.viewBinding
 import com.battousai.gamelist.databinding.FragmentCategoryDetailBinding
-import com.battousai.gamelist.models.CategoryListGameResponseModel
+import com.battousai.gamelist.models.CategoryDetailResponseModel
 import com.bumptech.glide.Glide
-
 
 class CategoryDetailFragment : BaseFragment(R.layout.fragment_category_detail){
     private val viewBinding by viewBinding(FragmentCategoryDetailBinding::bind)
     private val viewModel: CategoryDetailViewModel by viewModels()
     private var categoryid=0
 
-
-
-
-
     override fun bind() {
         super.bind()
         arguments?.let {
             categoryid=CategoryDetailFragmentArgs.fromBundle(it).categoryid
         }
-
 
         viewModel.apply {
             eventFetchData.observe(viewLifecycleOwner, handleFetchData)
@@ -35,13 +29,10 @@ class CategoryDetailFragment : BaseFragment(R.layout.fragment_category_detail){
             getData(categoryid)
         }
 
-
-
     }
 
-
     @SuppressLint("SetTextI18n")
-    private val handleFetchData = Observer<CategoryListGameResponseModel> { model->
+    private val handleFetchData = Observer<CategoryDetailResponseModel> { model->
         viewBinding.apply {
             tvCategoryCount.text="${model.games_count} Games"
             tvCategoryName.text=model.name

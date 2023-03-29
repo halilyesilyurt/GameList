@@ -6,10 +6,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <ProgressBar
             android:id="@+id/progress"
             android:layout_width="wrap_content"
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="@string/action_game"
+            tools:text="Action Game"
             android:layout_gravity="center"
             android:textColor="@color/black"
             android:textSize="30sp"
@@ -41,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="@string/_300_game"
+            tools:text="300 Game"
             android:layout_gravity="center"
             android:textColor="@color/black"
             android:textSize="15sp"
@@ -55,12 +56,11 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:padding="4dp"
-            android:text="@string/information"
+            tools:text="Information"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="italic"
             />
 
-
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>

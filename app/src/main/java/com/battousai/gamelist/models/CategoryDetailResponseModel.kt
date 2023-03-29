@@ -3,8 +3,7 @@ package com.battousai.gamelist.models
 import com.google.gson.annotations.SerializedName
 
 
-data class CategoryListGameResponseModel (
-
+data class CategoryDetailResponseModel (
 	@SerializedName("id")
 	val id : Int,
 	@SerializedName("name")
