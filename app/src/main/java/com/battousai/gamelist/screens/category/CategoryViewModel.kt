@@ -5,12 +5,14 @@ import com.battousai.gamelist.base.BaseViewModel
 import com.battousai.gamelist.common.CommonLiveEvent
 import com.battousai.gamelist.models.CategoryListResponseModel
 import com.battousai.gamelist.repository.RemoteRepository
+import com.battousai.gamelist.screens.category.list.CategoryItemClickListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class CategoryViewModel : BaseViewModel() {
+class CategoryViewModel : BaseViewModel(),CategoryItemClickListener {
     val eventFetchData = CommonLiveEvent<CategoryListResponseModel>()
     val eventShowProgress = CommonLiveEvent<Boolean>()
+    val eventItemClick= CommonLiveEvent<Int>()
 
     fun getData() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -19,5 +21,9 @@ class CategoryViewModel : BaseViewModel() {
             eventShowProgress.postValue(false)
             eventFetchData.postValue(response)
         }
+    }
+
+    override fun onItemClick(itemId: Int) {
+       eventItemClick.postValue(itemId)
     }
 }

@@ -8,27 +8,24 @@ import com.battousai.gamelist.R
 import com.battousai.gamelist.base.BaseFragment
 import com.battousai.gamelist.base.viewBinding
 import com.battousai.gamelist.databinding.FragmentCategoryDetailBinding
+import com.battousai.gamelist.managers.NavigationManager
 import com.battousai.gamelist.models.CategoryDetailResponseModel
 import com.bumptech.glide.Glide
 
 class CategoryDetailFragment : BaseFragment(R.layout.fragment_category_detail){
     private val viewBinding by viewBinding(FragmentCategoryDetailBinding::bind)
     private val viewModel: CategoryDetailViewModel by viewModels()
-    private var categoryid=0
+
 
     override fun bind() {
         super.bind()
-        arguments?.let {
-            categoryid=CategoryDetailFragmentArgs.fromBundle(it).categoryid
-        }
+        val categoryId = NavigationManager.shared.params(this) as Int
 
         viewModel.apply {
             eventFetchData.observe(viewLifecycleOwner, handleFetchData)
             eventShowProgress.observe(viewLifecycleOwner, handleShowProgress)
-
-            getData(categoryid)
+            getData(categoryId)
         }
-
     }
 
     @SuppressLint("SetTextI18n")
