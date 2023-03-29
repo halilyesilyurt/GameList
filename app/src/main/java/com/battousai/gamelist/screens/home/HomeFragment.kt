@@ -12,6 +12,7 @@ import com.battousai.gamelist.screens.home.list.GameListAdapter
 
 class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
+
     private val viewBinding by viewBinding(FragmentHomeBinding::bind)
     private val viewModel: HomeViewModel by viewModels()
     private lateinit var gameListAdapter: GameListAdapter

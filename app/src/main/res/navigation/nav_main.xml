@@ -21,7 +21,18 @@
         android:id="@+id/category_fragment"
         android:name="com.battousai.gamelist.screens.category.CategoryFragment"
         android:label="CategoryFragment"
-        tools:layout="@layout/fragment_category" />
+        tools:layout="@layout/fragment_category" >
+    </fragment>
+    <fragment
+        android:id="@+id/categoryDetailFragment"
+        android:name="com.battousai.gamelist.screens.categoryDetail.CategoryDetailFragment"
+        android:label="fragment_category_detail"
+        tools:layout="@layout/fragment_category_detail" >
+        <argument
+            android:name="categoryid"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 
 
 </navigation>
