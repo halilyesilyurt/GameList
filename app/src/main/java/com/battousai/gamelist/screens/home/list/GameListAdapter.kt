@@ -5,13 +5,13 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.recyclerview.widget.RecyclerView
 import com.battousai.gamelist.R
-import com.battousai.gamelist.core.AddOrRemoveFavoriteListener
 import com.battousai.gamelist.models.GameModel
 
 class GameListAdapter(
-    private val gameList: List<GameModel>,
     private var addOrRemoveFavoriteListener: AddOrRemoveFavoriteListener
-) :RecyclerView.Adapter<GameListViewHolder>() {
+) : RecyclerView.Adapter<GameListViewHolder>() {
+
+    private var gameList = mutableListOf<GameModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameListViewHolder {
         return GameListViewHolder(
@@ -20,15 +20,16 @@ class GameListAdapter(
     }
 
     override fun onBindViewHolder(holder: GameListViewHolder, position: Int) {
-        holder.bind(gameList[position])
-
-        val btnFavorite = holder.itemView.findViewById<AppCompatCheckBox>(R.id.btnFav)
-        btnFavorite.setOnCheckedChangeListener { _, isChecked ->
-            addOrRemoveFavoriteListener.onAddOrRemoveFavorite(gameList[position],isChecked)
-        }
+        holder.bind(gameList[position], addOrRemoveFavoriteListener)
     }
 
     override fun getItemCount(): Int {
         return gameList.size
+    }
+
+    fun updateList(itemList: List<GameModel>) {
+        gameList.clear()
+        gameList = itemList as MutableList<GameModel>
+        this.notifyDataSetChanged()
     }
 }

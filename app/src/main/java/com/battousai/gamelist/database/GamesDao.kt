@@ -4,7 +4,6 @@ package com.battousai.gamelist.database
 import androidx.room.*
 import com.battousai.gamelist.models.GameModel
 
-
 @Dao
 interface GamesDao {
 
@@ -14,6 +13,6 @@ interface GamesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addFavorite(favMovie: GameModel)
 
-    @Delete
-    fun removeFavorite(favMovie: GameModel)
+    @Query("DELETE FROM dbGame WHERE id = :gameId")
+    fun removeFavorite(gameId: Long)
 }

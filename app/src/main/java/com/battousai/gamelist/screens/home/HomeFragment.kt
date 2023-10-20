@@ -7,11 +7,11 @@ import com.battousai.gamelist.R
 import com.battousai.gamelist.base.BaseFragment
 import com.battousai.gamelist.base.viewBinding
 import com.battousai.gamelist.databinding.FragmentHomeBinding
-import com.battousai.gamelist.models.GameListResponseModel
 import com.battousai.gamelist.models.GameModel
+import com.battousai.gamelist.screens.home.list.AddOrRemoveFavoriteListener
 import com.battousai.gamelist.screens.home.list.GameListAdapter
 
-class HomeFragment : BaseFragment(R.layout.fragment_home) {
+class HomeFragment : BaseFragment(R.layout.fragment_home), AddOrRemoveFavoriteListener {
 
     private val viewBinding by viewBinding(FragmentHomeBinding::bind)
     private val viewModel: HomeViewModel by viewModels()
@@ -19,26 +19,29 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     override fun bind() {
         super.bind()
+
+        viewBinding.apply {
+            gameListAdapter = GameListAdapter(this@HomeFragment)
+            viewBinding.rvGames.adapter = gameListAdapter
+        }
         viewModel.apply {
             eventFetchData.observe(viewLifecycleOwner, handleFetchData)
             eventShowProgress.observe(viewLifecycleOwner, handleShowProgress)
-
             getData()
         }
     }
 
 
-    private val handleFetchData = Observer<GameListResponseModel> {
-        gameListAdapter = GameListAdapter(it.results)
-        viewBinding.rvGames.adapter = gameListAdapter
-    }
-
-    private fun GameListAdapter(gameList: List<GameModel>): GameListAdapter {
-            TODO()
+    private val handleFetchData = Observer<List<GameModel>> {
+        gameListAdapter.updateList(it)
     }
 
 
     private val handleShowProgress = Observer<Boolean> {
         viewBinding.progress.isVisible = it
+    }
+
+    override fun onAddOrRemoveFavorite(game: GameModel, isAdd: Boolean) {
+        viewModel.addOrRemove(game, isAdd)
     }
 }

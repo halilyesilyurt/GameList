@@ -1,6 +1,5 @@
 package com.battousai.gamelist.models
 
-
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -42,7 +41,6 @@ data class GameModel(
     val reviewsTextCount: String,
     @ColumnInfo(name = "added")
     val added: Long,
-    @SerializedName("added_by_status")
     @ColumnInfo(name = "playtime")
     val playtime: Long,
     @SerializedName("suggestions_count")

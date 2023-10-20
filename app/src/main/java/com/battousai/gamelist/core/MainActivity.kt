@@ -1,15 +1,18 @@
 package com.battousai.gamelist.core
 
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.battousai.gamelist.R
 import com.battousai.gamelist.managers.NavigationManager
 import com.battousai.gamelist.models.GameModel
 import com.battousai.gamelist.repository.LocalRepository
+import com.battousai.gamelist.screens.home.list.AddOrRemoveFavoriteListener
 
-class MainActivity : AppCompatActivity(), AddOrRemoveFavoriteListener {
 
-    private var gameList = ArrayList<GameModel>()
+class MainActivity : AppCompatActivity(),AddOrRemoveFavoriteListener {
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,21 +21,11 @@ class MainActivity : AppCompatActivity(), AddOrRemoveFavoriteListener {
         NavigationManager.shared.launch(this@MainActivity)
 
 
-        val favoriteList = LocalRepository(this).favoriteGameList
-        if (favoriteList != null) {
-            for (i in favoriteList) {
-                for (x in gameList){
-                    if (x.gameId == i.gameId){
-                        x.isFavorite = true
-                    }
 
-
-                }
-            }
-        }
     }
 
-     override fun onAddOrRemoveFavorite(game: GameModel, isAdd: Boolean) {
+
+    override fun onAddOrRemoveFavorite(game: GameModel, isAdd: Boolean) {
         if (isAdd) {
             LocalRepository(this).add(game)
         } else {
@@ -40,6 +33,7 @@ class MainActivity : AppCompatActivity(), AddOrRemoveFavoriteListener {
         }
 
     }
+
 
 
 

@@ -1,4 +1,4 @@
-package com.battousai.gamelist.core
+package com.battousai.gamelist.screens.home.list
 
 import com.battousai.gamelist.models.GameModel
 
